@@ -1,0 +1,304 @@
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+html,
+body {
+	font-family: "Open Sans", Arial, sans-serif;
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 300;
+	text-transform: none;
+}
+.tb-gforms-compat .gform_wrapper .gsection .gfield_label,
+.tb-gforms-compat .gform_wrapper h2.gsection_title,
+.tb-gforms-compat .gform_wrapper h3.gform_title,
+.sf-menu .mega-section-header,
+h1, h2, h3, h4, h5, h6 {
+	font-family: "Roboto Slab", Arial, sans-serif;
+	font-style: normal;
+	font-weight: 700;
+	text-transform: none;
+}
+a {
+	color: #428bca;
+}
+a:hover {
+	color: #2a6496;
+}
+.site-footer a {
+	color: #ffffff;
+}
+.site-footer a:hover {
+	color: #ffffff;
+}
+.btn,
+input[type="submit"],
+input[type="reset"],
+input[type="button"],
+.button,
+button {
+	border-width: 1px;
+	-webkit-border-radius: 0px;
+	border-radius: 0px;
+}
+.btn-default,
+input[type="submit"],
+input[type="reset"],
+input[type="button"],
+.button,
+button {
+	background-color: #f5f5f5;
+	border-color: #dddddd;
+	-webkit-box-shadow: inset 0 1px 0 rgba(255,255,255,.2);
+	box-shadow: inset 0 1px 0 rgba(255,255,255,.2);
+	color: #666666;
+}
+.btn-default:hover,
+.btn-default:focus,
+.btn-default:active,
+.btn-default.active,
+input[type="submit"]:hover,
+input[type="submit"]:focus,
+input[type="submit"]:active,
+input[type="reset"]:hover,
+input[type="reset"]:focus,
+input[type="reset"]:active,
+input[type="button"]:hover,
+input[type="button"]:focus,
+input[type="button"]:active,
+.button:hover,
+.button:focus,
+.button:active,
+button:hover,
+button:focus,
+button:active {
+	background-color: #eeeeee;
+	border-color: #dddddd;
+	-webkit-box-shadow: inset 0 1px 0 rgba(255,255,255,.1);
+	box-shadow: inset 0 1px 0 rgba(255,255,255,.1);
+	color: #666666;
+}
+.primary,
+.bg-primary,
+.btn-primary,
+a.alt,
+button.alt,
+input.alt,
+.label-primary,
+.panel-primary > .panel-heading {
+	background-color: #1971af;
+	border-color: #0066af;
+	color: #ffffff;
+}
+.panel-primary > .panel-heading > .panel-title {
+	color: #ffffff;
+}
+.primary:hover,
+.primary:focus,
+a.bg-primary:hover,
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary.active,
+a.alt:hover,
+a.alt:focus,
+button.alt:hover,
+button.alt:focus,
+input.alt:hover,
+input.alt:focus {
+	background-color: #0066af;
+	border-color: #0066af;
+	color: #ffffff;
+}
+.panel-primary {
+	border-color: #0066af;
+}
+.tb-tag-cloud .tagcloud a:hover,
+.tb-tags a:hover,
+.tb-tags a:focus,
+.btn-share:hover,
+.btn-share:focus {
+	background-color: #1e73be
+}
+.tb-thumb-link:before,
+.post_showcase .showcase-item.has-title .featured-item.showcase .item-title {
+	background-color: rgba(30,115,190,0.8);
+}
+.tooltip-inner {
+	border-color: #1e73be;
+}
+.tooltip.top .tooltip-arrow,
+.tb-contact-popover.bottom {
+	border-top-color: #1e73be;
+}
+.tooltip.bottom .tooltip-arrow,
+.tb-contact-popover.bottom > .arrow:after {
+	border-bottom-color: #1e73be;
+}
+.box-title,
+.fixed-sidebar .widget-title,
+#comments-title,
+.tb-info-box .info-box-title,
+.tb-related-posts .related-posts-title {
+	border-bottom: 2px solid #f2f2f2;
+	border-color: rgba(220,220,220,.4);
+	padding-bottom: .83em;
+	position: relative;
+}
+.box-title:before,
+.box-title:after,
+.fixed-sidebar .widget-title:before,
+#comments-title:before,
+.info-box-title:before,
+.tb-related-posts .related-posts-title:before {
+	content: "";
+	background: #1e73be; /* highlight */
+	position: absolute;
+	bottom: -2px;
+	left: 0;
+	width: 75px;
+	height: 2px;
+	z-index: 2;
+}
+.box-title {
+	border-bottom-color: transparent;
+}
+.box-title:before {
+	width: 50px;
+}
+.box-title:after {
+	background: #f2f2f2;
+	background: rgba(220,220,220,.4);
+	width: 150px;
+	z-index: 1;
+}
+.fixed-sidebar .widget.standard {
+	background-color: #ffffff;
+	background-color: rgba(255,255,255,1);
+}
+.fixed-sidebar .widget-title {
+	color: #333333;
+	font-size: 18px;
+	text-shadow: none;
+}
+.site-header {
+	background-color: #ffffff;
+	background-color: rgba(255,255,255,1);
+	border-bottom-style: solid;
+	border-bottom-width: 1px;
+	border-bottom-color: #dddddd;
+}
+.tb-floating-search.below {
+	background-color: rgba(255,255,255,0.8);
+}
+@media (min-width: 768px) {
+	.header-content {
+		height: 90px;
+	}
+}
+.header-content .header-logo img {
+	height: 70px;
+}
+.header-nav .tb-primary-menu > li > .menu-btn {
+	padding-top: 35px;
+	padding-bottom: 35px;
+}
+.header-nav .tb-primary-menu > li > .menu-btn:before {
+	background-color: #1e73be;
+}
+.tb-primary-menu > li > ul.non-mega-sub-menu,
+.tb-primary-menu .sf-mega {
+	border-color: #1e73be;
+}
+.btn-navbar {
+	background-color: #1e73be;
+	color: #ffffff;
+}
+.btn-navbar:hover {
+	background-color: #3287d2;
+}
+.tb-primary-menu ul.non-mega-sub-menu,
+.tb-primary-menu .sf-mega {
+	background-color: #ffffff;
+}
+.tb-sticky-menu {
+	background-color: #ffffff;
+	background-color: rgba(255,255,255,0.9);
+}
+.tb-sticky-menu .tb-primary-menu > li > .menu-btn,
+.tb-sticky-menu .tb-primary-menu > li > .menu-btn:hover {
+	color: #333333;
+}
+.tb-sticky-menu .tb-primary-menu > li > .menu-btn:hover {
+	background-color: #ffffff;
+	background-color: rgba(0,0,0,.1);
+}
+.tb-mobile-menu-wrapper,
+.tb-mobile-menu-wrapper .tb-mobile-menu,
+.tb-mobile-menu-wrapper .tb-mobile-menu .sub-menu li.non-mega-sub-menu:last-child {
+	background-color: ;
+}
+.site-footer {
+	background-color: #333333;
+	background-color: rgba(51,51,51,1);
+	border-top-style: solid;
+	border-top-width: 5px;
+	border-top-color: #181818;
+}
+
+/* =Custom CSS
+-----------------------------------------------*/
+
+/* Page Banners */
+.tb-featured-banner {
+	border-bottom: 1px solid #ddd;
+}
+.tb-featured-banner .wrap {
+	min-height: 100px;
+}
+.tb-featured-banner .banner-title {
+	font-size: 24px;
+}
+
+/* Home Hero Unit */
+.home .element-jumbotron .text-block-2 {
+	font-family: "Roboto Slab";/* Use header font from typography options */
+}
+/* Page Banner */
+@media (min-width: 768px) {
+	.tb-featured-banner {
+		padding-top: 0px;
+	}
+}
+@media (min-width: 992px) {
+	.tb-featured-banner {
+		padding-top: 0px;
+	}
+}
+
+/* Primary Content */
+#custom-main > .section_primary {
+	background-color: #ffffff;
+	background-color: rgba(255,255,255,1);
+}
+
+/* Team */
+#custom-main > .section_544e9cc23b85d {
+	background-color: #f9f9f9;
+	background-color: rgba(249,249,249,1);
+}
+
+/* Clients */
+#custom-main > .section_544eada91dca3 {
+	background-color: #ffffff;
+	background-color: rgba(255,255,255,1);
+}

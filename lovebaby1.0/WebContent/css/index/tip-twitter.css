@@ -1,0 +1,20 @@
+.tip-twitter {
+	opacity:0.95;
+	z-index: 1000;
+	text-align:left;
+	color:#fff;
+	background-color: #333333;
+}
+.tip-twitter img {
+	display: block;
+}
+.tip-twitter .tip-inner {
+	border: 1px solid #000000;
+	padding: 5px;
+}
+.tip-twitter .tip-arrow-top,
+.tip-twitter .tip-arrow-right,
+.tip-twitter .tip-arrow-bottom,
+.tip-twitter .tip-arrow-left {
+	display: none;
+}

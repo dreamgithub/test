@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+
+    xmlns:beans="http://www.springframework.org/schema/beans"
+
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+
+    xsi:schemaLocation="http://www.springframework.org/schema/beans 
+
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+
+        http://www.springframework.org/schema/security
+
+        http://www.springframework.org/schema/security/spring-security.xsd">
+        
+       
+    <http auto-config='true'>  
+    	 <access-denied-handler error-page="/weblogin/check.jhtml?status=deny"/>
+        <!--  
+            login-page表示用户登陆时显示我们自定义的login.jsp  
+            authentication-failure-url表示用户登陆失败时，跳转到哪个页面，并添加一个error=true参数作为登陆失败的标示  
+            default-target-url表示登陆成功时，跳转到哪个页面  
+            token-validity-seconds:记住时间为多长2419200为4周
+            erase-credentials="false"来使记住功能有效
+            always-use-default-target="true" 不管访问路径是什么，登陆成功后都要跳转到default-target-url
+        -->  
+        <form-login 
+            login-page="/weblogin.jhtml" 
+            authentication-failure-url="/weblogin/check.jhtml?status=fail"   
+            default-target-url="/weblogin/check.jhtml?status=ok"   
+            always-use-default-target="true"    
+            
+        />  
+        <!-- <remember-me
+        	key="lovebaby"
+        	token-validity-seconds="2419200"
+        />    --> 
+        <logout logout-success-url="/weblogin/layout.jhtml"/>
+        <intercept-url pattern="/weblogin/*.jhtml" access="ROLE_0,ROLE_1,ROLE_2,ROLE_3,ROLE_4,ROLE_5,ROLE_USER,ROLE_6" /> 
+         <intercept-url pattern="/desktop/*.jhtml" access="ROLE_0,ROLE_1,ROLE_2,ROLE_3,ROLE_4,ROLE_5,ROLE_USER,ROLE_6" /> 
+         <intercept-url pattern="/webauthentication/*.jhtml" access="ROLE_1,ROLE_2,ROLE_3,ROLE_4,ROLE_USER,ROLE_6" /> 
+         <intercept-url pattern="/webCheckBaby/*.jhtml" access="ROLE_2,ROLE_3,ROLE_4,ROLE_USER" /> 
+         <intercept-url pattern="/webhistories/*.jhtml" access="ROLE_1,ROLE_2,ROLE_3,ROLE_4,ROLE_5,ROLE_USER,ROLE_6" /> 
+         <intercept-url pattern="/webnotice/*.jhtml" access="ROLE_1,ROLE_2,ROLE_3,ROLE_4,ROLE_5,ROLE_USER,ROLE_6" /> 
+         <intercept-url pattern="/webrecipes/*.jhtml" access="ROLE_1,ROLE_2,ROLE_3,ROLE_4,ROLE_5,ROLE_USER,ROLE_6" /> 
+       <!-- 检测失效的sessionId,超时时定位到另外一个URL -->  
+       <session-management invalid-session-url="/view.jhtml" > 
+		<!--         假设我们不希望用户在应用的同时多个地方登录，下面是我们如何做到这一点： 
+		         如果想让第一次登录失效,第二次登录启用则不要配置error-if-maximum-exceeded="true"   -->  
+     
+        <!--   <concurrency-control  max-sessions="1" error-if-maximum-exceeded="true" expired-url="/login.jsp?error=alreadyLoggedin"/>  --> 
+        </session-management>
+    </http>  
+    <authentication-manager erase-credentials="false">  
+        <authentication-provider>  
+            <!-- 加密用户的密码 -->  
+          	<password-encoder hash="md5"/>
+            <!--users-by-username-query获取用户名、密码、权限（只获取权限为1的数据），并验证与session中是否一致 -->
+            <!--authorities-by-username-query获取用户权限，用来与对应请求要求的权限对比 -->
+            <jdbc-user-service data-source-ref="dataSource"
+             users-by-username-query="select telephone,password,status as enabled  from members where telephone= ?"
+             authorities-by-username-query="select telephone,CONCAT('ROLE_',type) from members where telephone= ?"
+            />  
+        </authentication-provider>  
+    </authentication-manager>  
+    
+    
+     <!-- 国际化 -->  
+    <beans:bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">  
+      <!-- 如果不加载自己的国际化文件，去加载 Security 内部的国际化文件classpath:org/springframework/security/messages_zh_CN -->  
+      <beans:property name="basename" value="classpath:messages_zh_CN"/>  
+    </beans:bean>   
+   
+     
+   
+
+</beans:beans>

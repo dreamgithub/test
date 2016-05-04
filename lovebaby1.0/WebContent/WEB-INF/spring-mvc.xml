@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="
+     http://www.springframework.org/schema/beans
+     http://www.springframework.org/schema/beans/spring-beans.xsd
+     http://www.springframework.org/schema/context
+     http://www.springframework.org/schema/context/spring-context.xsd
+     http://www.springframework.org/schema/mvc
+     http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+	<!--      允许页面直接访问js,jsp内引用js文件需要配置该项,map是表示 /js/**的请求都指向location的/js/目录下-->
+	<mvc:resources mapping="/**" location="/" />
+	
+	<!-- 启用注解配置 -->
+	<context:annotation-config />
+	<!-- 需要扫描的包 -->
+	<context:component-scan base-package="com.lovebaby" />
+	<!-- 自动注册DefaultAnnotationHandlerMapping与AnnotationMethodHandlerAdapter 两个bean-->
+	<mvc:annotation-driven />
+	
+	<!--springmvc上传文件配置 -->
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">  
+		<property name="defaultEncoding" value="UTF-8" />
+	    <property name="maxUploadSize" value="504857600" />  
+	</bean>
+	
+	<!-- 遇到错误和异常指定跳转页面 -->
+	<bean id="exceptionResolver" class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver"> 
+	    <property name="exceptionMappings"> 
+	        <props> 
+	            <!-- 遇到MaxUploadSizeExceededException异常时，自动跳转到/WEB-INF/jsp/erro.jsp页面 --> 
+	            <prop key="org.springframework.web.multipart.MaxUploadSizeExceededException">weberro</prop> 
+	            <prop key="com.lovebaby.excepttion.WebException">weberro</prop> 
+	            <prop key="com.lovebaby.excepttion.AppException">apperro</prop> 
+	        </props> 
+	    </property> 
+	</bean> 
+	
+	
+	<!-- 避免IE内核浏览器执行AJAX时,返回JSON出现下载文件 -->
+    <bean id="mappingJacksonHttpMessageConverter"
+        class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter">
+        <property name="supportedMediaTypes">
+            <list>
+                <value>text/html;charset=UTF-8</value>
+            </list>
+        </property>
+    </bean>
+	
+	
+	 <!-- freemarker template 配置 -->  
+    <bean id="freemarkerConfigurer"  
+        class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">  
+        <!-- freemarker寻找资源的路径 ,freemarker的资源不能放在WEB-INF目录下，否则不能读取-->
+        <property name="templateLoaderPath" value="/html" />  
+        <property name="defaultEncoding" value="UTF-8" />  
+        <property name="freemarkerSettings">  
+            <props>  
+                <prop key="template_update_delay">10</prop>  
+                <prop key="locale">zh_CN</prop>  
+                <prop key="datetime_format">yyyy-MM-dd HH:mm:ss</prop> 
+                <prop key="classic_compatible">true</prop> 
+                <prop key="date_format">yyyy-MM-dd</prop>  
+                <prop key="number_format">#.##</prop>  
+            </props>  
+        </property>  
+      		<!--   设置freemarker常量，可在html中直接引用 -->
+        <property name="freemarkerVariables">  
+            <map>  
+                <entry key="sourcePath" value="/lovebaby1.0/WEB-INF/html"></entry>                
+                <entry key="basePath" value="/lovebaby1.0"></entry>                
+            </map>  
+        </property>
+    </bean>  
+     <!-- FreeMarker view resolver 视图解析器 -->  
+    <bean id="viewResolver"  
+        class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">  
+        <property name="viewClass"  
+            value="org.springframework.web.servlet.view.freemarker.FreeMarkerView" />  
+        <property name="suffix" value=".html" />  
+        <property name="contentType" value="text/html;charset=UTF-8" />  
+        <property name="exposeRequestAttributes" value="true" />  
+        <property name="exposeSessionAttributes" value="true" />  
+        <property name="exposeSpringMacroHelpers" value="true" />
+    </bean>  
+	
+	
+	<!-- 对模型视图添加前后缀    jsp视图解析器-->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/jsp/" />
+        <property name="suffix" value=".jsp" />
+    </bean>
+</beans>
